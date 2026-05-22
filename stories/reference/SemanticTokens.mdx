@@ -1,45 +1,10 @@
-import { Meta } from '@storybook/blocks'
-import { SEMANTIC_TOKEN_SAMPLES } from '../../src/tokens/token-data'
+import { Meta, Canvas } from '@storybook/blocks'
+import * as RefStories from './Reference.stories'
 
 <Meta title="Reference/Semantic Tokens" />
 
 # Semantic Tokens
 
-Sample from Figma Collection (~567 total). Full inventory is maintained in Figma; this reference will be auto-generated in a future pipeline.
+Full semantic color inventory exported from Figma Collection frame `73102:139464`.
 
-<div className="callout callout--warning">
-  Dark mode column in Figma is labeled <strong>Dark Mode Testing</strong>. Values may change before sign-off.
-</div>
-
-<table className="token-table">
-  <thead>
-    <tr>
-      <th>Token</th>
-      <th>Light</th>
-      <th>Dark (testing)</th>
-      <th>Group</th>
-    </tr>
-  </thead>
-  <tbody>
-    {SEMANTIC_TOKEN_SAMPLES.map((row) => (
-      <tr key={row.token}>
-        <td><code>{row.token}</code></td>
-        <td>{row.light}</td>
-        <td>{row.dark}</td>
-        <td>{row.group}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-
-## Largest semantic groups in Collection
-
-| Group | Token count |
-|-------|-------------|
-| `button/background` | 45 |
-| `badges/muted` | 40 |
-| `background` | varies |
-| `text` | varies |
-| `checkbox` | 14 |
-
-**Source:** VDS Figma · Collection frame (`73102:139464`)
+<Canvas of={RefStories.SemanticTokens} />

@@ -1,18 +1,13 @@
-import { Meta } from '@storybook/blocks'
-import { TokenMappingTable } from '../../src/components/TokenMappingTable'
+import { Meta, Canvas } from '@storybook/blocks'
+import * as RefStories from '../reference/Reference.stories'
 
 <Meta title="Migrations/Color v2/Token Mapping" />
 
 # Token Mapping
 
-Legacy Verity / Command CSS variables mapped to Color v2 semantic tokens.
+Legacy Verity / Command CSS variables mapped to Color v2 semantic tokens. Search the full semantic inventory in [Reference / Semantic Tokens](/docs/reference-semantic-tokens--docs).
 
-<div className="callout">
-  Full 567-row inventory lives in Figma Collection. This table covers the most common migration paths.
-  Search your codebase for legacy vars not listed here and file gaps with Design System.
-</div>
-
-<TokenMappingTable />
+<Canvas of={RefStories.LegacyMapping} />
 
 ## Dialect notes
 
@@ -24,6 +19,4 @@ Legacy Verity / Command CSS variables mapped to Color v2 semantic tokens.
 | `--vs-*` | Verity shared components | Map to component semantic groups |
 | `--vd-*` | Verity docs/internal | Map to `--link/*`, `--text/*` |
 
-## After mapping
-
-Validate with your product-line example in [Teams](/docs/teams-overview--docs).
+After mapping, validate with your product-line example in [Teams Overview](/docs/teams-overview--docs).

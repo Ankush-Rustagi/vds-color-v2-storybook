@@ -1,39 +1,10 @@
-import { Meta } from '@storybook/blocks'
-import { COLOR_PRIMITIVES } from '../../src/tokens/token-data'
+import { Meta, Canvas } from '@storybook/blocks'
+import * as RefStories from './Reference.stories'
 
 <Meta title="Reference/Color Primitives" />
 
 # Color Primitives
 
-Raw palette scales from Figma Collection. **Prefer semantic tokens** in component code — use primitives only when building new semantic mappings with Design System.
+Raw palette scales from the Figma Collection. Prefer semantic tokens in component code; use primitives when building new semantic mappings with Design System.
 
-<table className="token-table">
-  <thead>
-    <tr>
-      <th>Primitive</th>
-      <th>Hex</th>
-      <th>Usage</th>
-      <th>Swatch</th>
-    </tr>
-  </thead>
-  <tbody>
-    {COLOR_PRIMITIVES.map((row) => (
-      <tr key={row.name}>
-        <td><code>{row.name}</code></td>
-        <td>{row.hex}</td>
-        <td>{row.usage}</td>
-        <td>
-          <div className="swatch" style={{ background: row.hex, width: 32, height: 32 }} />
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-
-## Primitive families in Collection
-
-- `black` (alpha variants)
-- `blue`, `cyan`, `neutral`, `orange`, `red`, `green`
-- Brand cyan `#0285C8` preserved across rollout
-
-Semantic tokens resolve to primitives. Example: `--button/background/alert` resolves to `#CB2939` (red-alert primitive).
+<Canvas of={RefStories.ColorPrimitives} />

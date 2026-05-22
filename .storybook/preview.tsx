@@ -10,6 +10,7 @@ const preview: Preview = {
         component:
           'VDS Color v2 migration guides. Strategy hub: https://ankush-rustagi.github.io/vds-color-v2/',
       },
+      toc: true,
     },
     controls: {
       matchers: {
@@ -27,12 +28,9 @@ const preview: Preview = {
           'Teams',
           ['Overview', '*'],
           'Reference',
-          ['Token Naming', 'Semantic Tokens', 'Color Primitives'],
+          ['Token Naming', 'Semantic Tokens', 'Color Primitives', 'Size Tokens', 'Effects Tokens'],
         ],
       },
-    },
-    docs: {
-      toc: true,
     },
   },
   globalTypes: {
