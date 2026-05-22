@@ -13,14 +13,23 @@ function Swatch({ value }: { value?: string | null }) {
   return <span className="vds-swatch" style={{ background: value }} title={value} />
 }
 
-function SimpleTable({ rows, valueLabel = 'Value' }: { rows: SimpleTokenRow[]; valueLabel?: string }) {
+function SimpleTable({
+  rows,
+  showPalette,
+  valueLabel = 'Value',
+}: {
+  rows: SimpleTokenRow[]
+  showPalette: boolean
+  valueLabel?: string
+}) {
   if (!rows.length) return <p className="vds-empty">No tokens match.</p>
 
   return (
     <div className="vds-table-wrap">
-      <table className="vds-table">
+      <table className={`vds-table vds-table--simple${showPalette ? ' vds-table--with-group' : ''}`}>
         <thead>
           <tr>
+            {showPalette ? <th>Palette</th> : null}
             <th>Token</th>
             <th>{valueLabel}</th>
             <th>Step</th>
@@ -30,13 +39,14 @@ function SimpleTable({ rows, valueLabel = 'Value' }: { rows: SimpleTokenRow[]; v
         <tbody>
           {rows.map((row) => (
             <tr key={row.token}>
+              {showPalette ? <td className="vds-group-cell">{row.palette}</td> : null}
               <td>
                 <code className="vds-token-code">{row.token}</code>
               </td>
               <td>
                 <div className="vds-value-cell">
                   <Swatch value={row.value} />
-                  <span>{row.value || 'n/a'}</span>
+                  <span className="vds-value-cell__hex">{row.value || 'n/a'}</span>
                 </div>
               </td>
               <td className="vds-muted">{row.step || 'n/a'}</td>
@@ -50,76 +60,61 @@ function SimpleTable({ rows, valueLabel = 'Value' }: { rows: SimpleTokenRow[]; v
 }
 
 function SimpleReference({
-  title,
   rows,
   palettes,
   count,
+  paletteLabel = 'All palettes',
 }: {
-  title: string
   rows: SimpleTokenRow[]
   palettes: string[]
   count: number
+  paletteLabel?: string
 }) {
   const [query, setQuery] = useState('')
   const [palette, setPalette] = useState('all')
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return rows.filter((row) => {
+    const next = rows.filter((row) => {
       if (palette !== 'all' && row.palette !== palette) return false
       if (!q) return true
-      return row.token.toLowerCase().includes(q) || (row.value || '').toLowerCase().includes(q)
+      return (
+        row.token.toLowerCase().includes(q) ||
+        (row.palette || '').toLowerCase().includes(q) ||
+        (row.value || '').toLowerCase().includes(q)
+      )
+    })
+    return next.sort((a, b) => {
+      const p = (a.palette || '').localeCompare(b.palette || '')
+      return p !== 0 ? p : a.token.localeCompare(b.token)
     })
   }, [rows, query, palette])
 
-  const grouped = useMemo(() => {
-    const map = new Map<string, SimpleTokenRow[]>()
-    for (const row of filtered) {
-      const p = row.palette || 'root'
-      if (!map.has(p)) map.set(p, [])
-      map.get(p)!.push(row)
-    }
-    return [...map.entries()].sort((a, b) => a[0].localeCompare(b[0]))
-  }, [filtered])
-
   return (
     <div className="vds-ref">
-      <div className="vds-ref__intro">
-        <p>
-          {title} ({count} tokens from Figma Collection).
-        </p>
-      </div>
       <div className="vds-ref__toolbar">
         <input
           className="vds-input"
           type="search"
-          placeholder="Search..."
+          placeholder="Search token, palette, or value..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <select className="vds-select" value={palette} onChange={(e) => setPalette(e.target.value)}>
-          <option value="all">All palettes</option>
+          <option value="all">
+            {paletteLabel} ({palettes.length})
+          </option>
           {palettes.map((p) => (
             <option key={p} value={p}>
               {p}
             </option>
           ))}
         </select>
-        <span className="vds-count">{filtered.length} shown</span>
+        <span className="vds-count">
+          {filtered.length} of {count}
+        </span>
       </div>
-      {palette === 'all'
-        ? grouped.map(([p, groupRows]) => (
-            <section key={p} className="vds-ref__section">
-              <h3 className="vds-ref__group-title">
-                <code>{p}</code>
-                <span className="vds-count">{groupRows.length}</span>
-              </h3>
-              <SimpleTable rows={groupRows} />
-            </section>
-          ))
-        : (
-            <SimpleTable rows={filtered} />
-          )}
+      <SimpleTable rows={filtered} showPalette={palette === 'all'} />
     </div>
   )
 }
@@ -128,7 +123,6 @@ export function ColorPrimitivesReference() {
   const palettes = [...new Set(COLOR_PRIMITIVES.map((r) => r.palette))].sort()
   return (
     <SimpleReference
-      title="Color primitive scales (black, neutral, cyan, blue, etc.)"
       rows={COLOR_PRIMITIVES}
       palettes={palettes}
       count={TOKEN_META.counts['color-primitives']}
@@ -140,10 +134,10 @@ export function SizeTokensReference() {
   const palettes = [...new Set(SIZE_TOKENS.map((r) => r.palette))].sort()
   return (
     <SimpleReference
-      title="Size tokens: icon, radius, space, stroke"
       rows={SIZE_TOKENS}
       palettes={palettes}
       count={TOKEN_META.counts.size}
+      paletteLabel="All categories"
     />
   )
 }
@@ -152,10 +146,10 @@ export function EffectsTokensReference() {
   const palettes = [...new Set(EFFECTS_TOKENS.map((r) => r.palette))].sort()
   return (
     <SimpleReference
-      title="Effect tokens: blur, opacity, scrim"
       rows={EFFECTS_TOKENS}
       palettes={palettes}
       count={TOKEN_META.counts.effects}
+      paletteLabel="All categories"
     />
   )
 }
