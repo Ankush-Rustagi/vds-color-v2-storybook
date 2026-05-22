@@ -1,6 +1,6 @@
-import { Meta, Canvas } from '@storybook/blocks'
+import { Meta } from '@storybook/blocks'
 import { DocsTable } from '../../src/components/DocsTable'
-import * as RefStories from '../reference/Reference.stories'
+import { TokenMappingTable } from '../../src/components/TokenMappingTable'
 
 <Meta title="Migrations/Color v2/Token Mapping" />
 
@@ -8,7 +8,7 @@ import * as RefStories from '../reference/Reference.stories'
 
 Legacy Verity / Command CSS variables mapped to Color v2 semantic tokens. Search the full semantic inventory in [Reference / Semantic Tokens](/docs/reference-semantic-tokens--docs).
 
-<Canvas of={RefStories.LegacyMapping} />
+<TokenMappingTable />
 
 ## Dialect notes
 
