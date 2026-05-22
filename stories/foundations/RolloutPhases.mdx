@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/Color v2/Rollout Phases" />
+
+# Rollout Phases
+
+## Phase 1: Define tokens (Done)
+
+Design System published the Figma Collection frame with:
+
+- Semantic colors (~567 rows, light + dark)
+- Color primitives (neutral, cyan, blue, etc.)
+- Size tokens (icon, radius, space, stroke)
+- Effects (blur, opacity, scrim)
+
+## Phase 2: Publish guides (Active)
+
+- **Docs hub** — strategy, who does what, team cards
+- **This Storybook** — migration how-to, before/after, token reference
+
+## Phase 3: Migrate by product line (Next)
+
+Each product line migrates Command surfaces using a team-specific example in [Teams](/docs/teams-overview--docs):
+
+1. Identify surfaces using legacy CSS vars
+2. Map to v2 semantic tokens
+3. Validate on white and surface-01 backgrounds
+4. Check dark mode (testing values)
+
+## Phase 4: Ship and refine (Later)
+
+- Dark mode pairs graduate from "Testing" to signed-off
+- Token values adjusted based on team feedback
+- Codemods and lint rules for legacy var detection (future)
+
+## Shared starting point for all teams
+
+Every team begins with the same two reference migrations before their product-line example:
+
+- [Alert Button](/docs/migrations-color-v2-alert-button--docs)
+- [Checkbox](/docs/migrations-color-v2-checkbox--docs)

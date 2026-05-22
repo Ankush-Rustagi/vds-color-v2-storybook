@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Reference/Token Naming" />
+
+# Token Naming
+
+Color v2 uses a hierarchical naming convention aligned with Figma variables.
+
+## Pattern
+
+```
+--{component}/{property}/{state}
+```
+
+## Examples
+
+| Token | Meaning |
+|-------|---------|
+| `--button/background/alert` | Alert button background fill |
+| `--button/background/alert-hover` | Alert button hover state |
+| `--checkbox/default-background` | Default checkbox fill |
+| `--checkbox/alert-background` | Alert-path checkbox fill |
+| `--background/surface-01` | Subtle panel background |
+| `--text/emphasis` | Highest emphasis text |
+| `--text/primary` | Body text |
+| `--border/focus-ring` | Focus indicator |
+| `--focus` | Global focus ring color |
+| `--support/warning` | Warning indicator color |
+
+## CSS implementation note
+
+Figma uses slashes in token names. In CSS custom properties, map to a valid name:
+
+```css
+/* Figma: --button/background/alert */
+--vds-button-background-alert: #cb2939;
+```
+
+When the npm token package ships, it will expose the canonical names. Until then, use the mapping in [Token Mapping](/docs/migrations-color-v2-token-mapping--docs).
+
+## Semantic vs primitive
+
+| Layer | Example | Use |
+|-------|---------|-----|
+| **Semantic** | `--button/background/alert` | Bind in components |
+| **Primitive** | `cyan-500`, `neutral-700` | Referenced by semantics; rarely used directly |
+
+See [Color Primitives](/docs/reference-color-primitives--docs) for the raw palette scales.

@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/Color v2/Greenfield Adoption" />
+
+# Greenfield Adoption
+
+Building **new UI**? You skip legacy mapping and bind directly to v2 semantic tokens.
+
+## Day-one token picks
+
+| Need | Token |
+|------|-------|
+| Page background | `--background/canvas` |
+| Panel / sidebar | `--background/surface-01` |
+| Body text | `--text/primary` |
+| Labels / secondary | `--text/secondary` |
+| Headings | `--text/emphasis` |
+| Primary button | `--button/background/primary` |
+| Destructive button | `--button/background/alert` |
+| Focus ring | `--focus` |
+
+## Rules
+
+1. **Never hardcode hex** — bind to semantic tokens even if npm package is not shipped yet
+2. **Check both backgrounds** — white canvas and surface-01
+3. **Use Figma Collection as source of truth** until tokens ship in `@verkada/verity` (or equivalent)
+4. **Do not create team-specific tokens** — request additions through Design System
+
+## Most-used semantic groups
+
+Ranked by frequency in Collection:
+
+1. `button/background` (45 tokens)
+2. `badges/muted` (40 tokens)
+3. `background`
+4. `text`
+5. `border`
+6. `checkbox`
+
+Full list: [Semantic Tokens reference](/docs/reference-semantic-tokens--docs)
+
+## Reference stories
+
+- [Alert Button all states](/story/migrations-color-v2-alert-button--all-states-on-white)
+- [Checkbox matrix](/story/migrations-color-v2-checkbox--matrix)

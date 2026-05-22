@@ -1,0 +1,16 @@
+import { Meta, Canvas } from '@storybook/blocks'
+import * as TeamStories from './Team.stories'
+
+<Meta title="Teams/Command Analytics" />
+
+# Command Analytics
+
+**Surface:** Dashboard charts, KPI cards, date range controls
+
+**Example migration:** Chart series palette and axis label colors
+
+**Mapping:** `--vc-axis-label` → `--text/secondary`
+
+**Status:** In progress
+
+<Canvas of={TeamStories.CommandAnalytics} />

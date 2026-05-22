@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Migrations/Color v2/Getting Started" />
+
+# Getting Started (Frontend)
+
+← Back to [strategy hub](https://ankush-rustagi.github.io/vds-color-v2/) for rollout phases and team ownership.
+
+Step-by-step for engineers migrating legacy CSS variables to Color v2 semantic tokens.
+
+## 1. Find your legacy vars
+
+Search your codebase for:
+
+```
+--bg-canvas
+--color-surface-default
+--color-text-primary
+--button-danger-bg
+--vc-*
+--vs-*
+--vd-*
+```
+
+Three legacy dialects exist today. Map each explicitly — do not assume equivalence.
+
+## 2. Look up the v2 token
+
+Use the [Token Mapping table](/docs/migrations-color-v2-token-mapping--docs) or your product-line example in [Teams](/docs/teams-overview--docs).
+
+Example:
+
+```css
+/* Before */
+.danger-btn {
+  background: var(--button-danger-bg);
+}
+
+/* After */
+.danger-btn {
+  background: var(--vds-button-background-alert);
+  /* Figma name: --button/background/alert */
+}
+```
+
+## 3. Validate on both backgrounds
+
+Test your component on:
+
+- White canvas (`--background/canvas`)
+- Subtle panel (`--background/surface-01`)
+
+Toggle the **Theme** toolbar above to preview dark mode (testing values).
+
+## 4. Start with reference patterns
+
+Migrate these shared components first — every product line uses them:
+
+1. [Alert Button](/docs/migrations-color-v2-alert-button--docs)
+2. [Checkbox](/docs/migrations-color-v2-checkbox--docs)
+
+Then proceed to your [team-specific example](/docs/teams-overview--docs).
+
+## 5. Do not
+
+- Hardcode hex during transition
+- Create team-specific color tokens
+- Skip dark mode validation because values are "in testing"

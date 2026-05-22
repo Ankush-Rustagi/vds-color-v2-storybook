@@ -1,0 +1,178 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--vds-text-primary);
+  background: var(--vds-background-canvas);
+}
+
+.sb-preview-root {
+  color: var(--vds-text-primary);
+}
+
+.vds-surface {
+  padding: 24px;
+  border-radius: var(--vds-radius-small);
+  background: var(--vds-background-canvas);
+}
+
+.vds-surface--01 {
+  background: var(--vds-background-surface-01);
+}
+
+.legacy-surface {
+  padding: 24px;
+  border-radius: 6px;
+  background: var(--legacy-bg-canvas);
+}
+
+.legacy-surface--01 {
+  background: var(--legacy-bg-surface);
+}
+
+.before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .before-after {
+    grid-template-columns: 1fr;
+  }
+}
+
+.before-after__panel {
+  border: 1px solid var(--vds-text-disabled);
+  border-radius: var(--vds-radius-small);
+  overflow: hidden;
+}
+
+.before-after__label {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--vds-background-surface-01);
+  color: var(--vds-text-secondary);
+  border-bottom: 1px solid var(--vds-text-disabled);
+}
+
+.before-after__content {
+  padding: 20px;
+}
+
+.token-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.token-table th,
+.token-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--vds-text-disabled);
+}
+
+.token-table th {
+  font-weight: 600;
+  color: var(--vds-text-secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.token-table code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  background: var(--vds-background-surface-01);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.callout {
+  padding: 12px 16px;
+  border-radius: var(--vds-radius-small);
+  border-left: 3px solid var(--vds-button-background-primary);
+  background: var(--vds-background-surface-01);
+  margin: 16px 0;
+}
+
+.callout--warning {
+  border-left-color: var(--vds-support-warning);
+}
+
+.team-card {
+  border: 1px solid var(--vds-text-disabled);
+  border-radius: var(--vds-radius-small);
+  padding: 16px;
+}
+
+.team-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.status-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.status-pill--ready {
+  background: #e2f7ec;
+  color: #0a8450;
+}
+
+.status-pill--progress {
+  background: #e6f5fb;
+  color: #006f9a;
+}
+
+.status-pill--pending {
+  background: var(--vds-background-surface-01);
+  color: var(--vds-text-secondary);
+}
+
+[data-theme='dark'] .status-pill--ready {
+  background: #0a845033;
+  color: #4fd19b;
+}
+
+[data-theme='dark'] .status-pill--progress {
+  background: #0285c833;
+  color: #4fbbe5;
+}
+
+.swatch-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--vds-radius-xxsmall);
+  border: 1px solid var(--vds-text-disabled);
+}
+
+.swatch-label {
+  font-size: 11px;
+  color: var(--vds-text-secondary);
+  margin-top: 4px;
+}

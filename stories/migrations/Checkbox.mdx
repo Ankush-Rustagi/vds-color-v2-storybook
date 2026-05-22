@@ -1,0 +1,28 @@
+import { Meta, Canvas } from '@storybook/blocks'
+import * as CheckboxStories from './Checkbox.stories'
+
+<Meta of={CheckboxStories} />
+
+# Checkbox Migration
+
+Reference pattern from **Color Updates slides 8–9**. Covers default, selected, mixed, and alert paths.
+
+## Key tokens
+
+| Token | Light hex |
+|-------|-----------|
+| `--checkbox/default-background` | `#536573` |
+| `--checkbox/default-background-hover` | `#232426` |
+| `--checkbox/default-background-active` | `#3F515F` |
+| `--checkbox/alert-background` | `#CB2939` |
+| `--checkbox/alert-background-hover` | `#8D162A` |
+| `--focus` | `#0285C8` |
+| `--radius/xxsmall-03` | `4px` |
+
+## Before/after
+
+<Canvas of={CheckboxStories.BeforeAfterMatrix} />
+
+## v2 matrix on surface-01
+
+<Canvas of={CheckboxStories.Matrix} />

@@ -1,0 +1,23 @@
+import { Meta, Canvas } from '@storybook/blocks'
+import * as ComponentDocsStories from './ComponentDocs.stories'
+
+<Meta title="Foundations/Color v2/Component Docs" />
+
+# Component Documentation
+
+From Color Updates slide 4: Dropdown and Checkbox show full state matrices on light and dark backgrounds.
+
+These are the **bridge** between the abstract token table and real component behavior.
+
+## Checkbox state matrix
+
+<Canvas of={ComponentDocsStories.CheckboxOnSurface01} />
+
+## Alert button on two backgrounds
+
+<Canvas of={ComponentDocsStories.AlertButtonComparison} />
+
+See full migration stories:
+
+- [Alert Button migration](/docs/migrations-color-v2-alert-button--docs)
+- [Checkbox migration](/docs/migrations-color-v2-checkbox--docs)

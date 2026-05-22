@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/Color v2/Accessibility" />
+
+# Accessibility and Contrast
+
+From Color Updates slide 5: **colors do not transfer 1:1 between modes.** The same neutral can read differently as stroke vs fill.
+
+## Key constraints
+
+- Contrast ratios drove several token value changes (alert red, disabled gray)
+- Alert button tested on **white** and **surface-01** backgrounds
+- Focus ring uses brand cyan: `--focus` → `#0285C8`
+
+## Alert button contrast (slide 6)
+
+| State | Token | Light hex |
+|-------|-------|-----------|
+| Default | `--button/background/alert` | `#CB2939` |
+| Hover | `--button/background/alert-hover` | `#8D162A` |
+| Active | `--button/background/alert-active` | `#CB2939` |
+| Disabled | `--button/background/alert-disabled` | `#B0B6BE` |
+
+See the interactive [Alert Button before/after story](/docs/migrations-color-v2-alert-button--docs).
+
+## What to tell users
+
+> Some components have updated colors. Thank you for your patience as we refine them.
+> Colors don't transfer one-to-one between modes — the same color can look different depending on usage (stroke vs fill).
+
+## Reporting regressions
+
+If a migrated surface fails contrast on either light or dark:
+
+1. Note the component, background, and token used
+2. File feedback with Design System
+3. Do not revert to raw hex — request a token value adjustment in Collection

@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Foundations/Color v2/Overview" />
+
+# Color v2 Overview
+
+> **Strategy hub:** [VDS Color v2 Rollout Hub](https://ankush-rustagi.github.io/vds-color-v2/) covers rollout phases, who does what, and team migration status. This Storybook covers the how.
+
+VDS is migrating from **per-component dark mode overrides** to a **structured semantic token system**.
+Components bind to tokens like `--button/background/alert`, not raw hex values.
+
+## What changed
+
+| Before | After |
+|--------|-------|
+| Each component had its own hex and dark mode hack | One semantic name, light + dark values in Figma Collection |
+| Three legacy CSS dialects in Command (`--bg-canvas`, `--color-surface-default`, `--vc-*`) | Single v2 naming: `--{component}/{property}/{state}` |
+| Dark mode built component by component | Paired light/dark columns on every semantic token |
+
+## What to expect
+
+- **Brand cyan preserved** at `#0285C8`
+- **Alert red tightens** to `#CB2939` (from legacy `#DA5959`)
+- **Some UI will look different** — stroke vs fill reads differently across modes
+- **Dark mode is in testing** — Figma column labeled "Dark Mode Testing"
+
+## Where to go next
+
+| Your role | Start here |
+|-----------|------------|
+| Designer | [Figma Workflow](/docs/migrations-color-v2-figma-workflow--docs) |
+| Frontend engineer | [Getting Started](/docs/migrations-color-v2-getting-started--docs) |
+| Eng lead / PM | [What's Changing](/docs/foundations-color-v2-whats-changing--docs) |
+| New feature work | [Greenfield Adoption](/docs/foundations-color-v2-greenfield-adoption--docs) |
+
+Strategy narrative and rollout ownership live on the **[docs hub](https://ankush-rustagi.github.io/vds-color-v2/)**.
+
+**Source:** VDS Figma · Color Updates 1–10 + Collection frame
