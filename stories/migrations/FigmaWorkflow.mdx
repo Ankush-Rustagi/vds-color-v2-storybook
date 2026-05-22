@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/blocks'
+import { DocsTable } from '../../src/components/DocsTable'
 
 <Meta title="Migrations/Color v2/Figma Workflow" />
 
@@ -12,34 +13,42 @@ import { Meta } from '@storybook/blocks'
 
 Examples from the VDS deck:
 
-| Token | Resolved (light) |
-|-------|------------------|
-| `--button/background/alert` | `#CB2939` |
-| `--checkbox/default-background-hover` | `#232426` |
-| `--background/surface-01` | `#F7F9FB` |
-| `--text/emphasis` | `#030E16` |
+<DocsTable
+  headers={['Token', 'Resolved (light)']}
+  codeColumns={[0]}
+  hexColumns={[1]}
+  rows={[
+    ['--button/background/alert', '#CB2939'],
+    ['--checkbox/default-background-hover', '#232426'],
+    ['--background/surface-01', '#F7F9FB'],
+    ['--text/emphasis', '#030E16'],
+  ]}
+/>
 
 ## Workflow
 
 1. Open [VDS Figma file](https://www.figma.com/design/ErBiDvqI7wPQKKXWfhC6yl/VDS---Verkada-Design-System)
 2. Navigate to **Collection** frame for the full semantic inventory
-3. Rebind component fills/strokes to semantic variables — **never raw hex**
+3. Rebind component fills/strokes to semantic variables (never raw hex)
 4. Verify light and dark columns (dark is labeled "Dark Mode Testing")
 5. Use Alert Button and Checkbox as reference patterns before other components
 
 ## Do / Don't
 
-| Do | Don't |
-|----|-------|
-| Bind to semantic variables from Collection | Paste hex from old component libraries |
-| Check both light and dark resolved values | Assume 1:1 mapping between modes |
-| Flag missing tokens to Design System | Create local color styles per team |
-| Reference slide 4 component docs for state matrices | Skip disabled and focus states |
+<DocsTable
+  headers={['Do', "Don't"]}
+  rows={[
+    ['Bind to semantic variables from Collection', 'Paste hex from old component libraries'],
+    ['Check both light and dark resolved values', 'Assume 1:1 mapping between modes'],
+    ['Flag missing tokens to Design System', 'Create local color styles per team'],
+    ['Reference slide 4 component docs for state matrices', 'Skip disabled and focus states'],
+  ]}
+/>
 
 ## Reference frames in Figma
 
-- **Color Updates 1–10** — rollout narrative and worked examples
-- **Collection** — authoritative token spec (~567 semantic rows)
+- **Color Updates 1–10** (rollout narrative and worked examples)
+- **Collection** (authoritative token spec, ~567 semantic rows)
 
 ## Next
 

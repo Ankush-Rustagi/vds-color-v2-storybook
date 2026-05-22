@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/blocks'
+import { DocsTable } from '../../src/components/DocsTable'
 
 <Meta title="Foundations/Color v2/What's Changing" />
 
@@ -18,22 +19,25 @@ This page is for **eng leads and PMs** scoping the rollout for stakeholders.
 1. **Alert/destructive red** shifts from `#DA5959` to `#CB2939`
 2. **Disabled gray** unifies to `#B0B6BE`
 3. **Surface backgrounds** use `--background/surface-01` (`#F7F9FB` light)
-4. **Same color, different read** — a neutral used as stroke vs fill looks different across modes
+4. **Same color, different read** (a neutral used as stroke vs fill looks different across modes)
 
 ## Rollout phases
 
-| Phase | Status | Owner |
-|-------|--------|-------|
-| Define tokens in Figma Collection | Done | Design System |
-| Publish guides (this Storybook + docs hub) | Active | Design System + PM |
-| Migrate by product line | Next | Each product team |
-| Ship and refine (dark mode testing) | Later | All teams |
+<DocsTable
+  headers={['Phase', 'Status', 'Owner']}
+  rows={[
+    ['Define tokens in Figma Collection', 'Done', 'Design System'],
+    ['Publish guides (this Storybook + docs hub)', 'Active', 'Design System + PM'],
+    ['Migrate by product line', 'Next', 'Each product team'],
+    ['Ship and refine (dark mode testing)', 'Later', 'All teams'],
+  ]}
+/>
 
 ## Risk areas
 
-- **Dark mode values still in testing** — expect refinements after team feedback
-- **Legacy CSS var fragmentation** — teams must map their dialect explicitly (see [Token Mapping](/docs/migrations-color-v2-token-mapping--docs))
-- **Accessibility regressions** — contrast is an active constraint, not post-launch cleanup
+- **Dark mode values still in testing** (expect refinements after team feedback)
+- **Legacy CSS var fragmentation** (teams must map their dialect explicitly; see [Token Mapping](/docs/migrations-color-v2-token-mapping--docs))
+- **Accessibility regressions** (contrast is an active constraint, not post-launch cleanup)
 
 ## Team migration tracker
 

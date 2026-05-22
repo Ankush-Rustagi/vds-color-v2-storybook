@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/blocks'
+import { DocsTable } from '../../src/components/DocsTable'
 
 <Meta title="Foundations/Color v2/Greenfield Adoption" />
 
@@ -8,23 +9,27 @@ Building **new UI**? You skip legacy mapping and bind directly to v2 semantic to
 
 ## Day-one token picks
 
-| Need | Token |
-|------|-------|
-| Page background | `--background/canvas` |
-| Panel / sidebar | `--background/surface-01` |
-| Body text | `--text/primary` |
-| Labels / secondary | `--text/secondary` |
-| Headings | `--text/emphasis` |
-| Primary button | `--button/background/primary` |
-| Destructive button | `--button/background/alert` |
-| Focus ring | `--focus` |
+<DocsTable
+  headers={['Need', 'Token']}
+  codeColumns={[1]}
+  rows={[
+    ['Page background', '--background/canvas'],
+    ['Panel / sidebar', '--background/surface-01'],
+    ['Body text', '--text/primary'],
+    ['Labels / secondary', '--text/secondary'],
+    ['Headings', '--text/emphasis'],
+    ['Primary button', '--button/background/primary'],
+    ['Destructive button', '--button/background/alert'],
+    ['Focus ring', '--focus'],
+  ]}
+/>
 
 ## Rules
 
-1. **Never hardcode hex** — bind to semantic tokens even if npm package is not shipped yet
-2. **Check both backgrounds** — white canvas and surface-01
+1. **Never hardcode hex** (bind to semantic tokens even if npm package is not shipped yet)
+2. **Check both backgrounds** (white canvas and surface-01)
 3. **Use Figma Collection as source of truth** until tokens ship in `@verkada/verity` (or equivalent)
-4. **Do not create team-specific tokens** — request additions through Design System
+4. **Do not create team-specific tokens** (request additions through Design System)
 
 ## Most-used semantic groups
 

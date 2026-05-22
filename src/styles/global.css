@@ -355,3 +355,16 @@ body {
 .sbdocs-preview .vds-table-wrap {
   margin: 0;
 }
+
+.vds-docs-table {
+  margin: 16px 0 24px;
+}
+
+.sbdocs .vds-docs-table a {
+  color: var(--vds-button-background-primary, #0285c8);
+  text-decoration: none;
+}
+
+.sbdocs .vds-docs-table a:hover {
+  text-decoration: underline;
+}

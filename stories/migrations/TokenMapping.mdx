@@ -1,4 +1,5 @@
 import { Meta, Canvas } from '@storybook/blocks'
+import { DocsTable } from '../../src/components/DocsTable'
 import * as RefStories from '../reference/Reference.stories'
 
 <Meta title="Migrations/Color v2/Token Mapping" />
@@ -11,12 +12,16 @@ Legacy Verity / Command CSS variables mapped to Color v2 semantic tokens. Search
 
 ## Dialect notes
 
-| Legacy prefix | Origin | Migration approach |
-|---------------|--------|-------------------|
-| `--color-*` | Verity core | Direct mapping to `--text/*`, `--background/*` |
-| `--bg-*` | Early Command | Map to `--background/*` |
-| `--vc-*` | Verity charts | Map chart-specific vars to `--text/secondary`, `--chart/*` |
-| `--vs-*` | Verity shared components | Map to component semantic groups |
-| `--vd-*` | Verity docs/internal | Map to `--link/*`, `--text/*` |
+<DocsTable
+  headers={['Legacy prefix', 'Origin', 'Migration approach']}
+  codeColumns={[0]}
+  rows={[
+    ['--color-*', 'Verity core', 'Direct mapping to --text/*, --background/*'],
+    ['--bg-*', 'Early Command', 'Map to --background/*'],
+    ['--vc-*', 'Verity charts', 'Map chart-specific vars to --text/secondary, --chart/*'],
+    ['--vs-*', 'Verity shared components', 'Map to component semantic groups'],
+    ['--vd-*', 'Verity docs/internal', 'Map to --link/*, --text/*'],
+  ]}
+/>
 
 After mapping, validate with your product-line example in [Teams Overview](/docs/teams-overview--docs).

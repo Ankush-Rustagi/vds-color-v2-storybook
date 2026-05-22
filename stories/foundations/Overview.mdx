@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/blocks'
+import { DocsTable } from '../../src/components/DocsTable'
 
 <Meta title="Foundations/Color v2/Overview" />
 
@@ -11,27 +12,33 @@ Components bind to tokens like `--button/background/alert`, not raw hex values.
 
 ## What changed
 
-| Before | After |
-|--------|-------|
-| Each component had its own hex and dark mode hack | One semantic name, light + dark values in Figma Collection |
-| Three legacy CSS dialects in Command (`--bg-canvas`, `--color-surface-default`, `--vc-*`) | Single v2 naming: `--{component}/{property}/{state}` |
-| Dark mode built component by component | Paired light/dark columns on every semantic token |
+<DocsTable
+  headers={['Before', 'After']}
+  rows={[
+    ['Each component had its own hex and dark mode hack', 'One semantic name, light + dark values in Figma Collection'],
+    ['Three legacy CSS dialects in Command (--bg-canvas, --color-surface-default, --vc-*)', 'Single v2 naming: --{component}/{property}/{state}'],
+    ['Dark mode built component by component', 'Paired light/dark columns on every semantic token'],
+  ]}
+/>
 
 ## What to expect
 
 - **Brand cyan preserved** at `#0285C8`
 - **Alert red tightens** to `#CB2939` (from legacy `#DA5959`)
-- **Some UI will look different** — stroke vs fill reads differently across modes
-- **Dark mode is in testing** — Figma column labeled "Dark Mode Testing"
+- **Some UI will look different** (stroke vs fill reads differently across modes)
+- **Dark mode is in testing** (Figma column labeled "Dark Mode Testing")
 
 ## Where to go next
 
-| Your role | Start here |
-|-----------|------------|
-| Designer | [Figma Workflow](/docs/migrations-color-v2-figma-workflow--docs) |
-| Frontend engineer | [Getting Started](/docs/migrations-color-v2-getting-started--docs) |
-| Eng lead / PM | [What's Changing](/docs/foundations-color-v2-whats-changing--docs) |
-| New feature work | [Greenfield Adoption](/docs/foundations-color-v2-greenfield-adoption--docs) |
+<DocsTable
+  headers={['Your role', 'Start here']}
+  rows={[
+    ['Designer', <a href="/docs/migrations-color-v2-figma-workflow--docs">Figma Workflow</a>],
+    ['Frontend engineer', <a href="/docs/migrations-color-v2-getting-started--docs">Getting Started</a>],
+    ['Eng lead / PM', <a href="/docs/foundations-color-v2-whats-changing--docs">What's Changing</a>],
+    ['New feature work', <a href="/docs/foundations-color-v2-greenfield-adoption--docs">Greenfield Adoption</a>],
+  ]}
+/>
 
 Strategy narrative and rollout ownership live on the **[docs hub](https://ankush-rustagi.github.io/vds-color-v2/)**.
 

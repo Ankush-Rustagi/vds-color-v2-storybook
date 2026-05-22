@@ -1,4 +1,5 @@
 import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { DocsTable } from '../../src/components/DocsTable'
 import * as AlertButtonStories from './AlertButton.stories'
 
 <Meta of={AlertButtonStories} />
@@ -9,12 +10,17 @@ Reference pattern from **Color Updates slide 6**. Every product line uses destru
 
 ## Token mapping
 
-| State | Color v2 token | Light hex |
-|-------|----------------|-----------|
-| Default | `--button/background/alert` | `#CB2939` |
-| Hover | `--button/background/alert-hover` | `#8D162A` |
-| Active | `--button/background/alert-active` | `#CB2939` |
-| Disabled | `--button/background/alert-disabled` | `#B0B6BE` |
+<DocsTable
+  headers={['State', 'Color v2 token', 'Light hex']}
+  codeColumns={[1]}
+  hexColumns={[2]}
+  rows={[
+    ['Default', '--button/background/alert', '#CB2939'],
+    ['Hover', '--button/background/alert-hover', '#8D162A'],
+    ['Active', '--button/background/alert-active', '#CB2939'],
+    ['Disabled', '--button/background/alert-disabled', '#B0B6BE'],
+  ]}
+/>
 
 Legacy: `--button-danger-bg` (`#DA5959`) → v2: `--button/background/alert` (`#CB2939`)
 
