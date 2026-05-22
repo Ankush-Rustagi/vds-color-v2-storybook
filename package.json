@@ -6,9 +6,10 @@
   "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "npm run tokens:sync && storybook build -o storybook-static",
-    "build-storybook": "npm run tokens:sync && storybook build -o storybook-static",
+    "build": "storybook build -o storybook-static",
+    "build-storybook": "storybook build -o storybook-static",
     "tokens:sync": "python3 scripts/parse-figma-collection.py",
+    "tokens:refresh": "python3 scripts/parse-figma-collection.py",
     "preview": "npx serve storybook-static"
   },
   "dependencies": {
